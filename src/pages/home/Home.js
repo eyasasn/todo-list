@@ -11,37 +11,43 @@ function Home() {
     const id = uuid()
 
     const handleAddTask = () => {
-        const newToDo = {
-            text: addTask,
-            status: false,
-            id: id
+        if (addTask === "") {
+            alert("please add a task")
+        } else {
+            const newToDo = {
+                text: addTask,
+                status: false,
+                id: id
+            }
+            setToDos([...toDos, newToDo])
+            setAddTask("")
         }
-        setToDos([...toDos, newToDo])
-        setAddTask("")
+    }
+    const deleteToDo = (id) => {
+        const newToDos = toDos.filter((todo) => todo.id !== id)
+        setToDos(newToDos)
     }
 
-
     return (
-        <div>
-            <div>
-                <AddToDo
-                    addTask={addTask}
-                    setAddTask={setAddTask}
-                    onClick={() => handleAddTask()}
-                />
-            </div>
-            <div>
-                {toDos.map((todo, key) => (
-                    <ListToDoCard
-                        key={key}
-                        status={todo.status}
-                        text={todo.text}
+        <div className='background'>
+            <div className='to-do-card'>
+                <div >
+                    <AddToDo
+                        addTask={addTask}
+                        setAddTask={setAddTask}
+                        onClick={() => handleAddTask()}
                     />
-                ))}
+                    {toDos.map((todo, key) => (
+                        <ListToDoCard
+                            key={key}
+                            text={todo.text}
+                            onClick={() => deleteToDo(todo.id)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )
-
 }
 
 export default Home
