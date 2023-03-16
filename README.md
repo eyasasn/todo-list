@@ -1,5 +1,5 @@
 # To-do List
-##This is a to-do list project. You can add any task to the list, display the completed task with strikethrough or delete it completely.
+This is a to-do list project. You can add any task to the list, display the completed task with strikethrough or delete it completely.
 
 <img width="1278" alt="Screen Shot 2023-03-16 at 15 54 48" src="https://user-images.githubusercontent.com/82405060/225623395-24abd639-27d2-49fc-9bc8-8a55704022bd.png">
 
